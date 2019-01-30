@@ -33,6 +33,14 @@ class Artist
   Sql_runner.run(sql, values)
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM artists WHERE id = $1"
+    values = [id]
+    results = Sql_runner.run(sql, values)
+    artist_hash = results.first
+    artist = Artist.new(artist_hash)
+  end
+
   def self.all
     sql = "SELECT * FROM artists"
     artists = Sql_runner.run(sql)

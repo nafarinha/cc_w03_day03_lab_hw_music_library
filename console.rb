@@ -39,6 +39,8 @@ album_3 = Album.new({
   artist_1.name = 'Tim Jackson'
   artist_1.update()
 
+  p Artist.find(17)
+
 artists = Artist.all()
 albums = Album.all()
   #p album_1.artist()
