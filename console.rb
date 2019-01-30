@@ -33,6 +33,12 @@ album_3 = Album.new({
   album_2.save()
   album_3.save()
 
+  album_1.genre = 'Rock'
+  album_1.update()
+
+  artist_1.name = 'Tim Jackson'
+  artist_1.update()
+
 artists = Artist.all()
 albums = Album.all()
   #p album_1.artist()

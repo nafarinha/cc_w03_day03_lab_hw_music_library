@@ -42,6 +42,20 @@ class Album
     return albums.map { |album| Album.new(album) }
   end
 
+  def update()
+  sql = "
+  UPDATE albums SET (
+    title,
+    genre
+  ) =
+  (
+    $1,$2
+  )
+  WHERE id = $3"
+  values = [@title, @genre, @id]
+  Sql_runner.run(sql, values)
+  end
+
 
   def self.delete_all()
     sql = "DELETE FROM albums"
