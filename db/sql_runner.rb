@@ -13,5 +13,4 @@ class Sql_runner
     end
     return result
   end
-
 end

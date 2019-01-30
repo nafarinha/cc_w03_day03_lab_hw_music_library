@@ -1,5 +1,5 @@
 require('pry')
-require_relative('../db/sql_helper')
+require_relative('../db/sql_runner')
 require_relative('album.rb')
 
 class Artist
@@ -12,7 +12,7 @@ class Artist
     @name = options['name']
   end
 
-  def save()  
+  def save()
     sql = "INSERT INTO artists
     (
       name
@@ -25,7 +25,18 @@ class Artist
     values = ([@name])
     results = Sql_runner.run(sql, values)
     @id = results[0]["id"].to_i
-end
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM artists"
+    artists = Sql_runner.run(sql)
+  end
+
+  def delete()
+    sql = "DELETE FROM artists where id = $1"
+    values = [@id]
+    artists = Sql_runner.run(sql, values)
+  end
 
 
 
