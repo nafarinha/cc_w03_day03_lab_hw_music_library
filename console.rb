@@ -34,4 +34,5 @@ album_3 = Album.new({
   album_3.save()
 
 artists = Artist.all()
+albums = Album.all()
   #p album_1.artist()
